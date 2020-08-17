@@ -1,0 +1,14 @@
+{
+     "query": "HCL Technologies Limited, is an Indian multinational information technology (IT) service",
+    "entities": [
+        {
+            "word": "HCL",
+            "tag": "B-ORG"
+        },
+        {
+            "word": "Technologies",
+            "tag": "I-ORG"
+        }
+    ]
+}
+

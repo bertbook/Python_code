@@ -1,0 +1,12 @@
+{
+    "results": [
+        {
+            " question": "This movie is good.",
+            "answer": "Positive"
+        },
+		{
+            " question": "You are so dumb!",
+            "answer": "Negative"
+        }
+    ]
+}
