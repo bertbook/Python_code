@@ -1,0 +1,9 @@
+{
+    "query": "what is virus",
+    "context_list": [
+        {
+            "id": 1,
+            "context": "Once created and released, however, their spread is not directly under human control. Macro viruses:A macro is a piece of code that can be embedded in a data file. A macro virus is thus a virus that exists as a macro attached to a data file. In most respects, macro viruses are like all other viruses. The main difference is that they are attached to data files "
+        }
+    ]
+}
