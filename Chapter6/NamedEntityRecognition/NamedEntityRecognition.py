@@ -5,7 +5,7 @@ def build_ner_model ():
     return model
 
 """ 
-test_input = ['HCL Technologies Limited, is an Indian multinational information technology (IT) service']
+test_input = ['Amazon rainforests are located in South America.']
 
 ner_model = build_ner_model()
 results = ner_model(test_input)
