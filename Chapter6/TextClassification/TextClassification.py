@@ -29,6 +29,6 @@ def predict_category(classification_model, t, input_text):
 
 """ 
 classification_model, t = create_text_classification_model()
-input_text = 'Jesus Christ is the central figure of Christianity.'
+input_text = 'Babies with down syndrome have an extra chromosome.'
 print(predict_category(classification_model, t, input_text))
 """
