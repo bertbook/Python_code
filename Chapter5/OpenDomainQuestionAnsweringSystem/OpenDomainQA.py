@@ -6,6 +6,6 @@ def odqa_deeppavlov(questions):
     results = odqa(questions)
     return results
 
-questions = ["Where did guinea pigs originate?", "When did the Lynmouth floods happen?", "Who is virat kohli?"]
+questions = ["Where did guinea pigs originate?", "Who is virat kohli?"]
 answers = odqa_deeppavlov(questions)
 print(answers)
