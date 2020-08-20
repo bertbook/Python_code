@@ -28,6 +28,6 @@ def get_answer_using_bert(question, reference_text):
     return result
 
 
-question = "How many parameters does BERT-large have?"
-reference_text = "BERT-large is really big... it has 24-layers and an embedding size of 1,024, for a total of 340M parameters! Altogether it is 1.34GB, so expect it to take a couple minutes to download to your Colab instance."
+question = "Where was the Football League founded?"
+reference_text = " In 1888, The Football League was founded in England, becoming the first of many professional football competitions. During the 20th century, several of the various kinds of football grew to become some of the most popular team sports in the world."
 print(get_answer_using_bert(question, reference_text))
