@@ -12,8 +12,8 @@ def textClassification ():
         json_data = request.get_json(force=True)
         input_text = json_data['query']
 
-        classification_model, t = create_text_classification_model()
-        category = predict_category(classification_model, t, input_text)
+        classification_model, trans = create_text_classification_model()
+        category = predict_category(classification_model, trans, input_text)
 
         result = {}
         result['query'] = input_text
