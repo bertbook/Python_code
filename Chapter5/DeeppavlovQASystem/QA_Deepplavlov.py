@@ -5,9 +5,11 @@ def qa_deeppavlov(question, context):
     result = model([context], [question])
     return result
 
-context = " In 1888, The Football League was founded in England, becoming the first of many professional football competitions. During the 20th century, several of the various kinds of football grew to become some of the most popular team sports in the world."
+if __name__=="__main__":
 
-question = "In which year the Football league was founded?”
+    context = " In 1888, The Football League was founded in England, becoming the first of many professional football competitions. During the 20th century, several of the various kinds of football grew to become some of the most popular team sports in the world."
 
-answers = qa_deeppavlov(context, question)
-print(answers)
+    question = "In which year the Football league was founded?”
+
+    answers = qa_deeppavlov(context, question)
+    print(answers)
