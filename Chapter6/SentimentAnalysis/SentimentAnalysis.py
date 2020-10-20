@@ -5,7 +5,9 @@ def build_sentiment_model():
     return model
 
 
-test_input = ['hey, how are you?', 'You are so dumb!']
-sentiment_model = build_sentiment_model()
-results = sentiment_model(test_input)
-print(results)
+if __name__=="__main__":
+
+    test_input = ['This movie is good.', 'You are so dumb!']
+    sentiment_model = build_sentiment_model()
+    results = sentiment_model(test_input)
+    print(results)
