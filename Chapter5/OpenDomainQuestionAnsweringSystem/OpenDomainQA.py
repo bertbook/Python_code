@@ -6,6 +6,7 @@ def odqa_deeppavlov(questions):
     results = odqa(questions)
     return results
 
-questions = ["Where did guinea pigs originate?", "Who is virat kohli?"]
-answers = odqa_deeppavlov(questions)
-print(answers)
+if __name__=="__main__":
+    questions = ["Where did guinea pigs originate?", "Who is virat kohli?"]
+    answers = odqa_deeppavlov(questions)
+    print(answers)
