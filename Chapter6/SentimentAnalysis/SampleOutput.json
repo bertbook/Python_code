@@ -2,11 +2,11 @@
     "results": [
         {
             " question": "This movie is good.",
-            "answer": "Positive"
+            "answer": "Not Insult"
         },
 		{
             " question": "You are so dumb!",
-            "answer": "Negative"
+            "answer": "Insult"
         }
     ]
 }
