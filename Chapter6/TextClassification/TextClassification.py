@@ -2,33 +2,31 @@ from sklearn.datasets import fetch_20newsgroups
 import ktrain
 from ktrain import text
 
-def download_dataset():
-    categories = ['alt.atheism', 'soc.religion.christian','comp.graphics', 'sci.med']
-    train = fetch_20newsgroups(subset='train', categories=categories, shuffle=True, random_state=42)
-    test = fetch_20newsgroups(subset='test', categories=categories, shuffle=True, random_state=42)
-    train_classes = train.target_names
-    x_train, y_train = train.data, train.target
-    x_test, y_test = test.data, test.target
-    return x_train, y_train, x_test, y_test, train_classes
+def preprocess_dataset():
+    classes = ['alt.atheism', 'soc.religion.christian','comp.graphics', 'sci.med']
+    train_data = fetch_20newsgroups(subset='train', categories=classes, shuffle=True, random_state=42)
+    test_data = fetch_20newsgroups(subset='test', categories=classes, shuffle=True, random_state=42)
+    
+    return train_data.data,train_data.target, test_data.data, test_data.target, classes
 
 def create_text_classification_model():
     MODEL_NAME = 'distilbert-base-uncased'
-    x_train, y_train, x_test, y_test, train_classes = download_dataset()
-    t = text.Transformer(MODEL_NAME, maxlen=500, classes=train_classes)
-    trn = t.preprocess_train(x_train, y_train)
-    val = t.preprocess_test(x_test, y_test)
-    model = t.get_classifier()
-    classification_model = ktrain.get_learner(model, train_data=trn, val_data=val, batch_size=6)
+    train_features, train_labels, test_features, test_labels, train_classes = preprocess_dataset()
+    trans = text.Transformer(MODEL_NAME, maxlen=500, classes=train_classes)
+    train_preprocess = trans.preprocess_train(train_features, train_labels)
+    val_preprocess = trans.preprocess_test(test_features, test_labels)
+    model_data = trans.get_classifier()
+    classification_model = ktrain.get_learner(model_data, train_data=train_preprocess, val_data=val_preprocess, batch_size=6)
     classification_model.fit_onecycle(5e-5, 4)
-    return classification_model, t
+    return classification_model, trans
 
-def predict_category(classification_model, t, input_text):
-    predictor = ktrain.get_predictor(classification_model.model, preproc=t)
+def predict_category(classification_model, trans, input_text):
+    predictor = ktrain.get_predictor(classification_model.model, preproc=trans)
     results = predictor.predict(input_text)
     return results
 
-""" 
-classification_model, t = create_text_classification_model()
-input_text = 'Babies with down syndrome have an extra chromosome.'
-print(predict_category(classification_model, t, input_text))
-"""
+if __name__=="__main__": 
+    classification_model, trans = create_text_classification_model()
+    input_text = 'Babies with down syndrome have an extra chromosome.'
+    print(predict_category(classification_model, trans, input_text))
+
