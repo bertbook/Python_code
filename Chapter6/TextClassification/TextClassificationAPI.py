@@ -2,6 +2,7 @@ from flask import Flask, request
 import json
 
 from TextClassification.TextClassification import create_text_classification_model, predict_category
+from TextClassification import create_text_classification_model
 
 app=Flask(__name__)
 
